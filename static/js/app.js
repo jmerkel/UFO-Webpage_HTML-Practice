@@ -37,83 +37,48 @@ function updateFilters() {
 
     // If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object
+
+    filters = {}; //Object NOT ARRAY
+
     if (date) {
-        filters.append(date)
+        filters["datetime"] = date;
     }
     if (city) {
-        filters.append(city)
+        filters["city"] = city;
     }
     if (state) {
-        filters.append(state)
+        filters["state"] = state;
     }
     if (country) {
-        filters.append(country)
+        filters["country"] = country;
     }
     if (shape) {
-        filters.append(shape)
-    }
-    else {
-        filters = {}
+        filters["shape"] = shape;
     }
 
     // Call function to apply all filters and rebuild the table
-    filterTable(filters);
+    filterTable();
 }
 
-function filterTable(filters) {
+function filterTable() {
     // Set the filteredData to the tableData
     let filteredData = tableData;
 
     // Loop through all of the filters and keep any data that matches the filter values
+    // Filters are "OR" not "AND"
     Object.entries(filters).forEach(([key, value]) => {
-        console.log(`My ${key}: ${value}`);
+        filteredData = filteredData.filter(row => row[key] === value);
     })
-
 
     // Finally, rebuild the table using the filtered Data
     buildTable(filteredData);
 }
   
 // Attach an event to listen for changes to each filter
-// Hint: You'll need to select the event and what it is 
-//    listening for within each set of parenthesis
-d3.selectAll().on();
+// Hint: You'll need to select the event and what it is listening for within each set of parenthesis
+
+// Select any user input, run the update Filters whenever focus changes
+d3.selectAll("input").on("blur",updateFilters)
 
 // Build table when the page loads
 buildTable(tableData);
-
-/*
-function handleClick() {
-    // Look for #datetime id in HTML
-    // Property(value) --> grab information and hold in "date variable"
-    let date = d3.select("#datetime").property("value");
-
-    //default filter (tableData = original data)
-    let filteredData = tableData;
-
-    if (date) {
-        //show rows where date == date filter. "===" --> match exactly (type & value)
-        filteredData = filteredData.filter(row => row.datetime === date);
-    };
-    
-    //Rebuild table using filtered data. No date --> Original table used
-    buildTable(filteredData);
-};
-*/
-
-//d3.select("#filter-btn").on("click", handleClick);
-
-/*
-One thing that might help you for the module challenge, depending how you’ve structured
-your JavaScript, is another implementation of forEach that is useful for objects 
-(dictionaries). Given an object called player:
-
-let player = {"name": "Doug", "position": "Quarterback", "madeTeam": true};
-Object.entries(player).forEach(([key, value]) => {
-    console.log(`My ${key}: ${value}`);
-})
-
-This allows you to iterate over all the key-value pairs in an object, if, 
-for example, you had an object of filters where the key was the field to 
-filter on and the value is supplied by the user.
-*/
