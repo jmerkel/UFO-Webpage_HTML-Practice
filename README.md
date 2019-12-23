@@ -20,4 +20,4 @@ The next iteration of the webpage could include some of the following features:
 * Changing the single date filter to be a date range
 * Including a user input option to add data to the dataset
 * Including a download link so users can run their own analysis
-* Including visualization options, such as a line graph to show the frequency of sightings, or a map with pins to show locations.
+* Including visualization options, such as a line graph to show the frequency of sightings, or a map with pins to show locations of each sighting
