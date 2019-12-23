@@ -55,7 +55,20 @@
                             <input type="text" placeholder="1/10/2010" id="datetime"/>
                         </li>
                         <li class="list-group-item bg-dark">
-                            <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
+                            <label for="city">Enter City</label>
+                            <input type="text" placeholder="Berkeley" id="city"/>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="state">Enter State</label>
+                            <input type="text" placeholder="California" id="state"/>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="country">Enter Country</label>
+                            <input type="text" placeholder="USA" id="country"/>
+                        </li>
+                        <li class="list-group-item bg-dark">
+                            <label for="shape">Enter shape</label>
+                            <input type="text" placeholder="circle" id="shape"/>
                         </li>
                     </ul>
                 </form>
@@ -86,16 +99,4 @@
 </body>
 </html>
 
-<!--
-One thing that might help you for the module challenge, depending how you’ve structured your JavaScript, 
-is another implementation of forEach that is useful for objects (dictionaries). 
-Given an object called player:
 
-let player = {"name": "Doug", "position": "Quarterback", "madeTeam": true};
-Object.entries(player).forEach(([key, value]) => {
-    console.log(`My ${key}: ${value}`);
-})
-
-This allows you to iterate over all the key-value pairs in an object, if, for example, 
-you had an object of filters where the key was the field to filter on and the value is supplied by the user.
--->
