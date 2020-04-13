@@ -1,6 +1,5 @@
-# jmerkel_Module_11
-### Joe Merkel - Module 11
-HTML/JavaScript - UFO webpage
+# HTML/JavaScript Practice - UFO webpage
+### UC Berkeley - Module 11
 
 ## Purpose
 The purpose of this challenge is for the site administrator to display a series of data on a webpage, add additional filter options for users to use, and improve the quality of the webpage by dynamically filtering the data set instead of using a button to engage the filter.
